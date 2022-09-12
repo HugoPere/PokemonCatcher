@@ -1,0 +1,17 @@
+.pokemon {
+    border: 1px solid black;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.pokemon .info {
+    padding: 10px 20px;
+}
+
+.pokemon .image {
+    background-size: cover;
+    background-position: center;
+}

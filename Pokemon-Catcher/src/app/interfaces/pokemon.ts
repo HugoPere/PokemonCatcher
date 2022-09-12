@@ -3,6 +3,7 @@ export interface Pokemon {
     pokemonID: string;
     pokemonImageURL: string;
     pokemonName: string;
-    pokemonTypo: string;
+    pokemonType_1?: string;
+    pokemonType_2?: string;
     userID?: any;
 }

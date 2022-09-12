@@ -89,8 +89,7 @@ export class MainComponent implements OnInit {
 
       pokeID = Math.floor(Math.random() * 802);
       var pokename =  fetchPokemon(pokeID);
-      var uid = UserService.name;
-      console.log("SPDSAPSPDAPSDP " + uid);
+      
       pokename.then((value) => {
         this.user_Name = user
         this.pokemon_Name = value.name;
@@ -112,13 +111,20 @@ export class MainComponent implements OnInit {
           var capturedPokemonName = value.name;
           var capturedPokemonID = value.id;
           var capturedPokemonSprite = value.sprites.front_default;
-          var capturedPokemonType= value.types;
+          var capturedPokemonType= value.types[0].type.name;
+          var capturedPokemonType_2 = "no type";
+          if (value.types.lenght > 1){
+            console.log("entre al if del tipo 2");
+            capturedPokemonType_2= value.types[1].type.name;
+          }
+          
           let x: Pokemon = {
             captureTime: new Date(),
             pokemonID: capturedPokemonID,
             pokemonImageURL: capturedPokemonSprite,
             pokemonName: capturedPokemonName,
-            pokemonTypo: capturedPokemonType,
+            pokemonType_1: capturedPokemonType,
+            pokemonType_2: capturedPokemonType_2,
             userID: user
           }
           const response = await this.pokemonCapturseService.capturePokemon(x);

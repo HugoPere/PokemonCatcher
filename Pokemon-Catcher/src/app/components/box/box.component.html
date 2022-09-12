@@ -1,0 +1,12 @@
+<div class="pokemons">
+    <div class="pokemon" *ngFor="let pokemon of pokemons">
+        <div class="image" [ngStyle]="{ backgroundImage: 'url('+pokemon.pokemonImageURL+')' }"></div>
+        <div class="info">
+            <h4>{{pokemon.pokemonName}}</h4>
+            <p>{{pokemon.pokemonType_1}}</p>
+            <p>{{pokemon.pokemonType_2}}</p>
+            <!-- <p>{{pokemon_type_2}}</p> -->
+            <!-- <button class="btn btn-outline-danger" (click)="onClickDelete(pokemon)">Liberar</button> -->
+        </div>
+    </div>
+</div>
