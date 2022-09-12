@@ -30,7 +30,8 @@ export class BoxComponent implements OnInit {
   pokemon_Sprite: any;
   user_Name: any
   pokemon_Type_1: any;
-  pokemon_Type_2: any
+  pokemon_Type_2: any;
+  
   ngOnInit(): void {
     var i = 0;
     this.pokemonService.getPokemon().subscribe(pokemons =>  {
