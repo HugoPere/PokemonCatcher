@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pokemoncatcher-e86aa": {
+      "hosting": {
+        "Pokemon-Catcher": [
+          "pokemoncatcher-e86aa"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pokemoncatcher-e86aa"
+  }
+}
