@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/AuthService.service';
 
 @Component({
   selector: 'app-login',
@@ -40,6 +40,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['./main']);
       })
       .catch(error => console.log(error))
+  }
+
+  goRegister(){
+    this.router.navigate(['./register']);
   }
 
 }

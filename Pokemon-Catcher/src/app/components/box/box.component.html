@@ -306,9 +306,9 @@
       <div class="spacer"></div>
       
       <span> </span>
-      <!-- <a aria-label="Salir" target="_blank" rel="noopener" (click)="onClick()">
-        <span style="color:white">Log Out</span>
-      </a> -->
+      <a aria-label="Salir" target="_blank" rel="noopener" (click)="goCatch()">
+        <span style="color:white">Gotta cath'em all</span>
+      </a>
   </div>
   
   <div class="content" role="main">
@@ -325,8 +325,9 @@
                     <h4>{{pokemon.pokemonName}}</h4>
                     <p>{{pokemon.pokemonType_1}}</p>
                     <p>{{pokemon.pokemonType_2}}</p>
+                    <!-- <p>Capturado el: {{pokemon.captureTime.toDate() | date: 'dd/MM/yyyy'}}</p> -->
                     <!-- <p>{{pokemon_type_2}}</p> -->
-                    <!-- <button class="btn btn-outline-danger" (click)="onClickDelete(pokemon)">Liberar</button> -->
+                    <button class="btn btn-outline-danger" (click)="onClickDelete(pokemon)">Liberar</button>
                 </div>
             </div>
         </div>

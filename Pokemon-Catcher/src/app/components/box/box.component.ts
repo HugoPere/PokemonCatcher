@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../../interfaces/pokemon'
 import { PokemonCaptureServiceService } from 'src/app/services/pokemon-capture-service.service'
-import { getAuth } from "firebase/auth";
-import { UserService } from 'src/app/services/user.service';
-import { collection, addDoc, where } from 'firebase/firestore';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-box-',
   templateUrl: './box.component.html',
@@ -14,16 +12,17 @@ export class BoxComponent implements OnInit {
   pokemons: Pokemon[];
   
   constructor(
-    private pokemonService: PokemonCaptureServiceService
+    private pokemonService: PokemonCaptureServiceService,
+    private router: Router
   ) {
     this.pokemons = [{
-      captureTime: new Date(),
+      captureTime: new Date,
       pokemonID: "000",
       pokemonImageURL: ".",
-      pokemonName: "test",
-      pokemonType_1: "test",
-      pokemonType_2: "test",
-      userID: "test"
+      pokemonName: "Loading",
+      pokemonType_1: "Loading",
+      pokemonType_2: "Loading",
+      userID: "Loading"
     }];
   }
   pokemon_Name: any;
@@ -38,18 +37,15 @@ export class BoxComponent implements OnInit {
       
       this.pokemons = pokemons;
 
-      while(i <= pokemons.length){
-        this.pokemon_Name = this.pokemons[i].pokemonName;
-        console.log("name in box is " + this.pokemons[i].pokemonName);
-        this.pokemon_Sprite = this.pokemons[i].pokemonImageURL;
-        console.log("sprite in box is " + this.pokemons[i].pokemonImageURL)
-        this.pokemon_Type_1 = this.pokemons[i].pokemonType_1;
-        console.log("type in box is " + this.pokemons[i].pokemonType_1)
-        this.pokemon_Type_2 = this.pokemons[i].pokemonType_2;
-        console.log("type in box is " + this.pokemons[i].pokemonType_2)
-        i = i+1;
-      }
     })
   }
 
+  public goCatch(){
+    this.router.navigate(['./main']);
+  }
+
+  async onClickDelete(pokemon: Pokemon) {
+    const response = await this.pokemonService.deletePokemon(pokemon);
+    console.log(response);
+  }
 }

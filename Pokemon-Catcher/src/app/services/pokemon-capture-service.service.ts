@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { collectionData, Firestore } from '@angular/fire/firestore';
 import { getAuth } from 'firebase/auth';
-import { collection, addDoc, where, query } from 'firebase/firestore';
+import { collection, addDoc, where, query, doc, deleteDoc } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { Pokemon } from '../interfaces/pokemon';
 
@@ -24,5 +24,10 @@ export class PokemonCaptureServiceService {
     const q = query(pokemonRef, where("userID", "==", user));
     
     return collectionData(q, {idField: 'pokemonID'}) as Observable<Pokemon[]>;
+  }
+
+  deletePokemon(pokemon: Pokemon) {
+    const pokemonDocRef = doc(this.firestore, `Pokemon/${pokemon.pokemonID}`);
+    return deleteDoc(pokemonDocRef);
   }
 }
